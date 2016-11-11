@@ -187,18 +187,6 @@ public class MainActivity extends Activity implements RtmpHandler.RtmpListener,
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mPublisher.setPreviewRotation(90);
-        } else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mPublisher.setPreviewRotation(0);
-        }
-        mPublisher.stopEncode();
-        mPublisher.stopRecord();
-        btnRecord.setText("record");
-        mPublisher.setScreenOrientation(newConfig.orientation);
-        if (btnPublish.getText().toString().contentEquals("stop")) {
-            mPublisher.startEncode();
-        }
     }
 
     private static String getRandomAlphaString(int length) {
